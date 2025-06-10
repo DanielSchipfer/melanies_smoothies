@@ -33,7 +33,7 @@ if ingredient_list:
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
             values ('""" + ingredients_string + """', '""" + name_on_order + """')"""
 
-    time_to_insert = st.button('Submit Order')
+    time_to_insert = st.button('Submit Order', key='submit_order_button')
     if time_to_insert:
         session.sql(my_insert_stmt).collect()
         st.success(f'Your Smoothie is ordered, {name_on_order}!', icon="✅")
